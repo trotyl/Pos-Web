@@ -21,38 +21,38 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="container container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Let's Go</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">主页</a></li>
+                        <li><a href="views/items.html">商品列表</a></li>
+
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>购物车 (<span>0</span>)
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
 
         <div class="container">
-            <nav class="navbar navbar-inverse" role="navigation">
-                <div class="container-fluid">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#">Let's Go</a>
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">主页</a></li>
-                            <li><a href="#">商品列表</a></li>
-
-                        </ul>
-                        <ul class="nav navbar-nav pull-right">
-                            <li>
-                                <a href="#">
-                                    <span class="glyphicon glyphicon-shopping-cart"></span>购物车 (<span>0</span>)
-                                </a>
-                            </li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-            </nav>
 
             <div class="jumbotron">
                 <h1 class="text-left">Welcome to Let's Go!</h1>
@@ -60,7 +60,7 @@
                     商店里进行购物结算时会使用收银机（POS）系统，这台收银机会在结算时根据 客户的购物车（Cart）中的商品（Item）和商店正在进行的优惠活动（Promotion）进行结算和打印购物清单。
                     已知该商店正在对部分商品进行”买二赠一“的优惠活动。我们需要实现一个名为printInventory函数，该函数能够将指定格式的数据作为参数 输入，然后在浏览器的控制台中输出结算清单的文本。
                 </p>
-                <p class="text-left"><a class="btn btn-primary" href="#">Let's Go</a></p>
+                <p class="text-left"><a class="btn btn-primary" href="views/items.html">Let's Go</a></p>
             </div>
 
         </div>
