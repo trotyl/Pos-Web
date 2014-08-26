@@ -63,10 +63,16 @@ body {
     margin-top: 28px;
 }
 
+/* Added by Trotyl*/
+.left {
+    left: 5px;
+}
+
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
-        max-width: 1024px;
+        max-width: 1060px;
     }
 
     /* Remove the padding we set earlier */
