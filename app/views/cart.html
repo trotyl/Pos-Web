@@ -33,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="../index.html">主页</a></li>
-                        <li><a href="views/items.html">商品列表</a></li>
+                        <li><a href="items.html">商品列表</a></li>
 
                     </ul>
                     <ul class="nav navbar-nav pull-right">
@@ -50,9 +50,11 @@
         <div class="container text-center">
 
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3>商品列表</h3>
+
+                <div class="">
+                    <h3>购物清单</h3>
                 </div>
+
                 <div class="panel-body">
                     <table class="table table-bordered">
                         <tr>
@@ -65,49 +67,132 @@
                             <td>瓶</td>
                             <td>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default">-</button>
-                                    <button type="button" class="btn btn-default">0</button>
-                                    <button type="button" class="btn btn-default">+</button>
+                                    <button class="btn btn-default">-</button>
+                                    <button class="btn btn-default count">0</button>
+                                    <button class="btn btn-default">+</button>
                                 </div>
                             </td>
-                            <td class=""></td>
+                            <td class="sum">0</td>
                         </tr>
                         <tr class="list-item">
                             <td>饮料</td>
                             <td class="item-name">雪碧</td>
                             <td>3</td>
                             <td>瓶</td>
-                            <td><button class="btn btn-primary btm-sm">加入购物车</button></td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-default">-</button>
+                                    <button class="btn btn-default count">0</button>
+                                    <button class="btn btn-default">+</button>
+                                </div>
+                            </td>
+                            <td class="sum">0</td>
                         </tr>
                         <tr class="list-item">
                             <td>水果</td>
                             <td class="item-name">苹果</td>
                             <td>5.5</td>
                             <td>斤</td>
-                            <td><button class="btn btn-primary btm-sm">加入购物车</button></td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-default">-</button>
+                                    <button class="btn btn-default count">0</button>
+                                    <button class="btn btn-default">+</button>
+                                </div>
+                            </td>
+                            <td class="sum">0</td>
                         </tr>
                         <tr class="list-item">
                             <td>水果</td>
                             <td class="item-name">荔枝</td>
                             <td>15</td>
                             <td>斤</td>
-                            <td><button class="btn btn-primary btm-sm">加入购物车</button></td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-default">-</button>
+                                    <button class="btn btn-default count">0</button>
+                                    <button class="btn btn-default">+</button>
+                                </div>
+                            </td>
+                            <td class="sum">0</td>
                         </tr>
                         <tr class="list-item">
                             <td>生活用品</td>
                             <td class="item-name">电池</td>
                             <td>2</td>
                             <td>个</td>
-                            <td><button class="btn btn-primary btm-sm">加入购物车</button></td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-default">-</button>
+                                    <button class="btn btn-default count">0</button>
+                                    <button class="btn btn-default">+</button>
+                                </div>
+                            </td>
+                            <td class="sum">0</td>
                         </tr>
                         <tr class="list-item">
                             <td>食品</td>
                             <td class="item-name">方便面</td>
                             <td>4.5</td>
                             <td>袋</td>
-                            <td><button class="btn btn-primary btm-sm">加入购物车</button></td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-default">-</button>
+                                    <button class="btn btn-default count">0</button>
+                                    <button class="btn btn-default">+</button>
+                                </div>
+                            </td>
+                            <td class="sum">0</td>
                         </tr>
                     </table>
+                </div>
+
+                <div class="">
+                    <h3>赠送商品</h3>
+                </div>
+
+                <div class="panel-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>分类</th><th>名称</th><th>数量</th>
+                        </tr>
+                        <tr class="list-item">
+                            <td>饮料</td>
+                            <td class="item-name">可口可乐</td>
+                            <td class="free">0</td>
+                        </tr>
+                        <tr class="list-item">
+                            <td>饮料</td>
+                            <td class="item-name">雪碧</td>
+                            <td class="free">0</td>
+                        </tr>
+                        <tr class="list-item">
+                            <td>水果</td>
+                            <td class="item-name">苹果</td>
+                            <td class="free">0</td>
+                        </tr>
+                        <tr class="list-item">
+                            <td>水果</td>
+                            <td class="item-name">荔枝</td>
+                            <td class="free">0</td>
+                        </tr>
+                        <tr class="list-item">
+                            <td>生活用品</td>
+                            <td class="item-name">电池</td>
+                            <td class="free">0</td>
+                        </tr>
+                        <tr class="list-item">
+                            <td>食品</td>
+                            <td class="item-name">方便面</td>
+                            <td class="free">0</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="side-space text-right">
+                    <p>总计：<span id="total">0.00元</span></p>
+                    <p>节省：<span id="save">0.00元</span></p>
+                    <button class="btn btn-primary vertical-space">付款</button>
                 </div>
             </div>
 

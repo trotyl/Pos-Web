@@ -67,10 +67,18 @@ body {
     left: 5px;
 }
 
-
-
 th {
     text-align: center;
+}
+
+.side-space {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.vertical-space {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* Responsive: Portrait tablets and up */
