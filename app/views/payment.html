@@ -56,6 +56,7 @@
                 </div>
 
                 <div class="panel-body">
+                    <p id="dateTime" class="text-left"></p>
                     <table id="bought-table" class="table table-bordered">
                         <tr>
                             <th>分类</th><th>名称</th><th>单价(元)</th><th>单位</th><th>数量</th><th>小计</th>
@@ -108,6 +109,7 @@
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="../../bower_components/moment/moment.js"></script>
         <script src="../../node_modules/lodash/lodash.js"></script>
 
         <script src="../scripts/models/promotion.js"></script>
