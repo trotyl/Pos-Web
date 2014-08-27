@@ -2,7 +2,7 @@ function cartCount () {
     var boughtItems = JSON.parse(localStorage.boughtItems);
     var total = 0;
     for(var item in boughtItems) {
-        total += boughtItems[item] || 0;
+        total += boughtItems[item].count || 0;
     }
     return total;
 }
