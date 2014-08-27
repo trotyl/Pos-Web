@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var total = 0;
     var save = 0;
-    
+
     $('.bought-item').each(function () {
         var itemName = $(this).find('.item-name').text();
         var boughtItems = JSON.parse(localStorage.boughtItems);

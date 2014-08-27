@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="panel-body">
-                    <table class="table table-bordered">
+                    <table id="bought-table" class="table table-bordered">
                         <tr>
                             <th>分类</th><th>名称</th><th>单价(元)</th><th>单位</th><th>数量</th><th>小计</th>
                         </tr>
@@ -231,6 +231,8 @@
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="../scripts/models/promotion.js"></script>
+        <script src="../scripts/fixtures.js"></script>
         <script src="../scripts/main.js"></script>
         <script src="../scripts/cart.js"></script>
         <!-- endbuild -->
