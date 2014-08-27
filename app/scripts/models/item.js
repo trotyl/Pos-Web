@@ -7,7 +7,6 @@ function Item(barcode, name, unit, price, type) {
     this.count = 0;
     this.promotion = false;
     this.free = 0;
-    this.fare = 0;
 }
 
 Item.prototype.getPromotion = function() {
