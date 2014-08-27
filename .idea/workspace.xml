@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a200dbf9-6b1a-47d6-86a4-6e8efbf58414" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/payment.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/cart.html" afterPath="$PROJECT_DIR$/app/views/cart.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/payment.html" afterPath="$PROJECT_DIR$/app/views/payment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Pos-Web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,9 +80,32 @@
       <file leaf-file-name="cart.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/cart.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4906542" vertical-offset="885" max-vertical-offset="2040">
-              <caret line="80" column="84" selection-start-line="80" selection-start-column="84" selection-end-line="80" selection-end-column="84" />
+            <state vertical-scroll-proportion="0.5373832" vertical-offset="720" max-vertical-offset="2040">
+              <caret line="71" column="35" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="payment.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/payment.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.125" vertical-offset="765" max-vertical-offset="1905">
+              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="payment.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/payment.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
+              <caret line="28" column="54" selection-start-line="28" selection-start-column="54" selection-end-line="28" selection-end-column="54" />
+              <folding>
+                <marker date="1409127759000" expanded="true" signature="217:259" placeholder="..." />
+                <marker date="1409127759000" expanded="true" signature="949:987" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,31 +148,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.333334" vertical-offset="850" max-vertical-offset="1560">
-              <caret line="94" column="8" selection-start-line="94" selection-start-column="8" selection-end-line="94" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/scripts/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
               <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/styles/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1695">
-              <caret line="73" column="13" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -174,6 +180,8 @@
         <option value="$PROJECT_DIR$/app/scripts/models/item.js" />
         <option value="$PROJECT_DIR$/app/scripts/models/order.js" />
         <option value="$PROJECT_DIR$/app/scripts/cart.js" />
+        <option value="$PROJECT_DIR$/app/scripts/payment.js" />
+        <option value="$PROJECT_DIR$/app/views/payment.html" />
         <option value="$PROJECT_DIR$/app/views/cart.html" />
       </list>
     </option>
@@ -336,9 +344,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/scripts" />
       <recent name="$PROJECT_DIR$/app/views" />
       <recent name="$PROJECT_DIR$/app/scripts/models" />
-      <recent name="$PROJECT_DIR$/app/scripts" />
     </key>
   </component>
   <component name="RunManager">
@@ -582,10 +590,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/payment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
+          <caret line="28" column="54" selection-start-line="28" selection-start-column="54" selection-end-line="28" selection-end-column="54" />
+          <folding>
+            <marker date="1409127759000" expanded="true" signature="217:259" placeholder="..." />
+            <marker date="1409127759000" expanded="true" signature="949:987" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/payment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.125" vertical-offset="765" max-vertical-offset="1905">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/cart.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4906542" vertical-offset="885" max-vertical-offset="2040">
-          <caret line="80" column="84" selection-start-line="80" selection-start-column="84" selection-end-line="80" selection-end-column="84" />
+        <state vertical-scroll-proportion="0.5373832" vertical-offset="720" max-vertical-offset="2040">
+          <caret line="71" column="35" selection-start-line="71" selection-start-column="35" selection-end-line="71" selection-end-column="35" />
           <folding />
         </state>
       </provider>
