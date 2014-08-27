@@ -57,4 +57,8 @@ $(document).ready(function () {
     });
 
     $('#dateTime').text(moment().format('YYYY年MM月DD日 HH:mm:ss'));
+
+    $('#confirm').on('click', function () {
+        localStorage.clear();
+    });
 });
