@@ -32,6 +32,11 @@ Item.prototype.minusCount = function () {
     this.storage();
 };
 
+Item.prototype.sumDisplay = function () {
+    var extraSum = this.free() > 0? ' (原价：' + this.total() + '元)': '';
+    return this.fare() + '元' + extraSum;
+};
+
 Item.prototype.free = function () {
     return this.promotion? Math.floor(this.count / 3): 0;
 };

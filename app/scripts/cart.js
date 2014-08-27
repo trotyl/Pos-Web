@@ -1,8 +1,26 @@
+function refresh () {
+    var boughtList = Order.all();
+    $('.present-item').remove();
+    _(boughtList).each(function (item) {
+        if(item.free() > 0) {
+            var presentItem = $('<tr class="present-item">\
+                                    <td>' + item.type + '</td>\
+                                    <td class="item-name">' + item.name + '</td>\
+                                    <td class="item-free">' + item.free() + '</td>\
+                                </tr>');
+            $('#present-table').append(presentItem);
+        }
+    });
+    $('#total').text(Order.totalPrice(boughtList).toFixed(2) + '元');
+    $('#save').text(Order.savePrice(boughtList).toFixed(2) + '元');
+    $('#count').text(cartCount());
+}
+
 $(document).ready(function () {
     var boughtList = Order.all();
     Order.getPromotion(boughtList, loadPromotions());
+
     _(boughtList).each(function (item) {
-        var extraSum = item.free() > 0? ' (原价：' + item.total() + '元)': '';
         var boughtItem = $('<tr class="bought-item">\
                                 <td>' + item.type + '</td>\
                                 <td class="item-name">' + item.name + '</td>\
@@ -15,22 +33,12 @@ $(document).ready(function () {
                                         <button class="btn btn-default item-add">+</button>\
                                     </div>\
                                 </td>\
-                                <td class="item-sum">' + item.fare() + '元' + extraSum + '</td>\
+                                <td class="item-sum">' + item.sumDisplay() + '</td>\
                             </tr>');
         $('#bought-table').append(boughtItem);
-
-        if(item.free > 0) {
-            var presentItem = $('<tr class="present-item">\
-                                    <td>' + item.type + '</td>\
-                                    <td class="item-name">' + item.name + '</td>\
-                                    <td class="item-free">' + item.free() + '</td>\
-                                </tr>');
-            $('#present-table').append(presentItem);
-        }
-
-        $('#total').text(Order.totalPrice(boughtList).toFixed(2) + '元');
-        $('#save').text(Order.savePrice(boughtList).toFixed(2) + '元');
     }, this);
+
+    refresh();
 
     $('.item-add').on('click', function () {
         var itemName = $(this).closest('.bought-item').find('.item-name').text();
@@ -38,6 +46,9 @@ $(document).ready(function () {
         item.addCount();
         var itemCount = $(this).closest('div').find('.item-count');
         itemCount.text(item.count);
+        var itemSum = $(this).closest('.bought-item').find('.item-sum');
+        itemSum.text(item.sumDisplay());
+        refresh();
     });
 
     $('.item-minus').on('click', function () {
@@ -46,6 +57,9 @@ $(document).ready(function () {
         item.minusCount();
         var itemCount = $(this).closest('div').find('.item-count');
         itemCount.text(item.count);
+        var itemSum = $(this).closest('.bought-item').find('.item-sum');
+        itemSum.text(item.sumDisplay());
+        refresh();
     });
 
 });

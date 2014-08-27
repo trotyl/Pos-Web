@@ -12,7 +12,6 @@ Order.all = function () {
 };
 
 Order.findByName = function (name) {
-    console.log(name);
     return _(Order.all()).find(function (item) {
         return item.name == name;
     });
