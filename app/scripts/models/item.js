@@ -1,22 +1,27 @@
-function Item(barcode, name, unit, type, price, count, promotion, free) {
+function Item(barcode, name, unit, price, type, count, promotion) {
     this.barcode = barcode;
     this.name = name;
     this.unit = unit;
+    this.price = price;
     this.type = type;
-    this.price = price || 0.00;
     this.count = count || 0;
     this.promotion = promotion || false;
-    this.free = free || 0;
 }
 
-Item.prototype.getPromotion = function() {
-	this.promotion = true;
-	this.free = Math.floor(this.count / 3);
+Item.prototype.storage = function () {
+    var boughtItems = JSON.parse(localStorage.boughtItems);
+    boughtItems[this.barcode] = this;
+    localStorage.boughtItems = JSON.stringify(boughtItems);
+};
+
+Item.prototype.getPromotion = function () {
+    this.promotion = true;
+    this.storage();
 };
 
 Item.prototype.addCount = function() {
-	this.count++;
-	this.promotion && this.getPromotion();
+    this.count++;
+    this.storage();
 };
 
 Item.prototype.minusCount = function () {
@@ -24,7 +29,11 @@ Item.prototype.minusCount = function () {
         return;
     }
     this.count--;
-    this.promotion && this.getPromotion();
+    this.storage();
+};
+
+Item.prototype.free = function () {
+    return this.promotion? Math.floor(this.count / 3): 0;
 };
 
 Item.prototype.total = function () {
@@ -32,9 +41,9 @@ Item.prototype.total = function () {
 };
 
 Item.prototype.fare = function () {
-    return (this.count - this.free) * this.price;
+    return (this.count - this.free()) * this.price;
 };
 
 Item.prototype.save = function () {
-    return this.free * this.price;
+    return this.free() * this.price;
 };
