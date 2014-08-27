@@ -10,7 +10,7 @@ $(document).ready(function () {
         if(_(two_with_one_list).some(function (name) { return name == itemName; })) {
             var itemFree = Math.floor(this.count / 3);
         }
-        
+
         var itemPrice = +$(this).find('.item-price').text() - itemFree;
         $(this).find('.item-count').text(itemCount);
         $(this).find('.item-sum').text(itemCount * itemPrice);

@@ -54,51 +54,9 @@
                     <h3>商品列表</h3>
                 </div>
                 <div class="panel-body">
-                    <table class="table table-bordered">
+                    <table id="item-table" class="table table-bordered">
                         <tr>
                             <th>分类</th><th>名称</th><th>单价(元)</th><th>单位</th><th></th>
-                        </tr>
-                        <tr class="list-item">
-                            <td>饮料</td>
-                            <td class="item-name">可口可乐</td>
-                            <td>3</td>
-                            <td>瓶</td>
-                            <td><button class="btn btn-primary btm-sm">加入购物车</button></td>
-                        </tr>
-                        <tr class="list-item">
-                            <td>饮料</td>
-                            <td class="item-name">雪碧</td>
-                            <td>3</td>
-                            <td>瓶</td>
-                            <td><button class="btn btn-primary btm-sm">加入购物车</button></td>
-                        </tr>
-                        <tr class="list-item">
-                            <td>水果</td>
-                            <td class="item-name">苹果</td>
-                            <td>5.5</td>
-                            <td>斤</td>
-                            <td><button class="btn btn-primary btm-sm">加入购物车</button></td>
-                        </tr>
-                        <tr class="list-item">
-                            <td>水果</td>
-                            <td class="item-name">荔枝</td>
-                            <td>15</td>
-                            <td>斤</td>
-                            <td><button class="btn btn-primary btm-sm">加入购物车</button></td>
-                        </tr>
-                        <tr class="list-item">
-                            <td>生活用品</td>
-                            <td class="item-name">电池</td>
-                            <td>2</td>
-                            <td>个</td>
-                            <td><button class="btn btn-primary btm-sm">加入购物车</button></td>
-                        </tr>
-                        <tr class="list-item">
-                            <td>食品</td>
-                            <td class="item-name">方便面</td>
-                            <td>4.5</td>
-                            <td>袋</td>
-                            <td><button class="btn btn-primary btm-sm">加入购物车</button></td>
                         </tr>
                     </table>
                 </div>
@@ -113,15 +71,6 @@
         <!-- endbower -->
         <!-- endbuild -->
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
 
         <!-- build:js scripts/plugins.js -->
         <script src="../../bower_components/bootstrap/js/affix.js"></script>
@@ -139,6 +88,9 @@
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="../../node_modules/lodash/lodash.js"></script>
+
+        <script src="../scripts/models/item.js"></script>
         <script src="../scripts/fixtures.js"></script>
         <script src="../scripts/main.js"></script>
         <script src="../scripts/items.js"></script>
