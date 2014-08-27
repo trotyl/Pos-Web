@@ -1,23 +1,40 @@
-function Item(barcode, name, unit, price, type) {
+function Item(barcode, name, unit, type, price, count, promotion, free) {
     this.barcode = barcode;
     this.name = name;
     this.unit = unit;
-    this.price = price || 0.00;
     this.type = type;
-    this.count = 0;
-    this.promotion = false;
-    this.free = 0;
+    this.price = price || 0.00;
+    this.count = count || 0;
+    this.promotion = promotion || false;
+    this.free = free || 0;
 }
 
 Item.prototype.getPromotion = function() {
 	this.promotion = true;
 	this.free = Math.floor(this.count / 3);
-	this.fare = (this.count - this.free) * this.price;
 };
 
-Item.prototype.addCount = function(raw_barcode) {
-	var bought_number = parseInt(raw_barcode.substring(11)) || 1;
-	this.count += bought_number;
-	this.fare = this.count * this.price;
-	return bought_number * this.price;
+Item.prototype.addCount = function() {
+	this.count++;
+	this.promotion && this.getPromotion();
+};
+
+Item.prototype.minusCount = function () {
+    if(this.count <= 0) {
+        return;
+    }
+    this.count--;
+    this.promotion && this.getPromotion();
+};
+
+Item.prototype.total = function () {
+    return this.count * this.price;
+};
+
+Item.prototype.fare = function () {
+    return (this.count - this.free) * this.price;
+};
+
+Item.prototype.save = function () {
+    return this.free * this.price;
 };
