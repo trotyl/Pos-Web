@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a200dbf9-6b1a-47d6-86a4-6e8efbf58414" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/payment.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/cart.html" afterPath="$PROJECT_DIR$/app/views/cart.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/cart.js" afterPath="$PROJECT_DIR$/app/scripts/cart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/models/item.js" afterPath="$PROJECT_DIR$/app/scripts/models/item.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/models/order.js" afterPath="$PROJECT_DIR$/app/scripts/models/order.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Pos-Web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,6 +61,7 @@
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
               <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
               <folding>
+                <marker date="1409116149000" expanded="true" signature="30:1223" placeholder="{...}" />
                 <marker date="1409116149000" expanded="true" signature="264:319" placeholder="..." />
                 <marker date="1409116149000" expanded="true" signature="264:393" placeholder="..." />
                 <marker date="1409116149000" expanded="true" signature="264:450" placeholder="..." />
@@ -81,8 +77,8 @@
       <file leaf-file-name="cart.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/cart.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20560747" vertical-offset="963" max-vertical-offset="2040">
-              <caret line="73" column="29" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.4906542" vertical-offset="885" max-vertical-offset="2040">
+              <caret line="80" column="84" selection-start-line="80" selection-start-column="84" selection-end-line="80" selection-end-column="84" />
               <folding />
             </state>
           </provider>
@@ -524,6 +520,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
           <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
           <folding>
+            <marker date="1409116149000" expanded="true" signature="30:1223" placeholder="{...}" />
             <marker date="1409116149000" expanded="true" signature="264:319" placeholder="..." />
             <marker date="1409116149000" expanded="true" signature="264:393" placeholder="..." />
             <marker date="1409116149000" expanded="true" signature="264:450" placeholder="..." />
@@ -587,8 +584,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/cart.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20560747" vertical-offset="963" max-vertical-offset="2040">
-          <caret line="73" column="29" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.4906542" vertical-offset="885" max-vertical-offset="2040">
+          <caret line="80" column="84" selection-start-line="80" selection-start-column="84" selection-end-line="80" selection-end-column="84" />
           <folding />
         </state>
       </provider>
