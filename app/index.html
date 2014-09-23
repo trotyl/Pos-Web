@@ -9,7 +9,7 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css styles/vendor.css -->
         <!-- bower:css -->
-        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
@@ -21,48 +21,11 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <nav class="navbar navbar-inverse" role="navigation">
-            <div class="container container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Let's Go</a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">主页</a></li>
-                        <li><a href="views/items.html">商品列表</a></li>
-
-                    </ul>
-                    <ul class="nav navbar-nav pull-right">
-                        <li>
-                            <a href="views/cart.html">
-                                <span class="glyphicon glyphicon-shopping-cart"></span>购物车 (<span id="count">0</span>)
-                            </a>
-                        </li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-
-        <div class="container">
-
-            <div class="jumbotron">
-                <h1 class="text-left">Welcome to Let's Go!</h1>
-                <p class="lead text-left">
-                    商店里进行购物结算时会使用收银机（POS）系统，这台收银机会在结算时根据 客户的购物车（Cart）中的商品（Item）和商店正在进行的优惠活动（Promotion）进行结算和打印购物清单。
-                    已知该商店正在对部分商品进行”买二赠一“的优惠活动。我们需要实现一个名为printInventory函数，该函数能够将指定格式的数据作为参数 输入，然后在浏览器的控制台中输出结算清单的文本。
-                </p>
-                <p class="text-left"><a class="btn btn-primary" href="views/items.html">Let's Go</a></p>
-            </div>
-
-        </div>
-
-
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/moment/moment.js"></script>
+        <script src="../bower_components/lodash/dist/lodash.compat.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -92,6 +55,7 @@
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script type="text/javascript" src="scripts/boot.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
