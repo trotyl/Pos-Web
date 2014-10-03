@@ -1,21 +1,3 @@
-function refresh () {
-    var boughtList = Order.all();
-    $('.present-item').remove();
-    _(boughtList).each(function (item) {
-        if(item.free() > 0) {
-            var presentItem = $('<tr class="present-item">\
-                                    <td>' + item.type + '</td>\
-                                    <td class="item-name">' + item.name + '</td>\
-                                    <td class="item-free">' + item.free() + '</td>\
-                                </tr>');
-            $('#present-table').append(presentItem);
-        }
-    });
-    $('#total').text(Order.totalPrice(boughtList).toFixed(2) + '元');
-    $('#save').text(Order.savePrice(boughtList).toFixed(2) + '元');
-    $('#count').text(cartCount());
-}
-
 $(document).ready(function () {
     var boughtList = Order.all();
     Order.getPromotion(boughtList, loadPromotions());
@@ -38,8 +20,6 @@ $(document).ready(function () {
         $('#bought-table').append(boughtItem);
     }, this);
 
-    refresh();
-
     $('.item-add').on('click', function () {
         var itemName = $(this).closest('.bought-item').find('.item-name').text();
         var item = Order.findByName(itemName);
@@ -48,7 +28,6 @@ $(document).ready(function () {
         itemCount.text(item.count);
         var itemSum = $(this).closest('.bought-item').find('.item-sum');
         itemSum.text(item.sumDisplay());
-        refresh();
     });
 
     $('.item-minus').on('click', function () {
@@ -59,7 +38,6 @@ $(document).ready(function () {
         itemCount.text(item.count);
         var itemSum = $(this).closest('.bought-item').find('.item-sum');
         itemSum.text(item.sumDisplay());
-        refresh();
     });
 
 });
