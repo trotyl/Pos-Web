@@ -15,7 +15,15 @@ function loadCartCount () {
     }, 0)
 }
 
+function listenerInitiate () {
+    $('.view-option').on('click', function () {
+        var view = $(this).data('view');
+        loadView(view);
+    })
+}
+
 $(document).ready(function () {
     loadCartCount();
     loadView('home');
+    listenerInitiate();
 });
