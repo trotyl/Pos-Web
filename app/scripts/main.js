@@ -5,6 +5,7 @@ function viewPath (view) {
 function loadView (view) {
     $.get(viewPath(view), function (data) {
         $('#view').html(data);
+        listenerInitiate();
     });
 }
 
