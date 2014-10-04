@@ -3,17 +3,18 @@ function buyButtonFormer () {
 }
 
 function cartAddItem (itemName) {
+    console.log(itemName);
     var cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
     cartItems[itemName] || (cartItems[itemName] = _(loadAllItems()).find({name: itemName}));
     cartItems[itemName].count += 1;
-    localStorage.boughtItems = JSON.stringify(cartItems);
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
 }
 
 function cartCountInitiate () {
     var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    return _(cartItems).reduce(function (sum, item) {
-        return sum + item.count();
-    }, 0)
+    $('#cart-count').text(_(cartItems).reduce(function (sum, item) {
+        return sum + item.count;
+    }, 0));
 }
 
 function highlightInitiate () {
@@ -34,9 +35,8 @@ function listenerInitiate () {
 }
 
 function listItemFormer (item) {
-    var itemLine = '<tr class="list-item"><td class="item-type"></td><td class="item-name"></td><td class="item-price"></td><td class="item-unit"></td><td class="item-buy"></td></tr>';
+    var itemLine = '<tr class="list-item" data-item=""><td class="item-type"></td><td class="item-name"></td><td class="item-price"></td><td class="item-unit"></td><td class="item-buy"></td></tr>';
     var itemDom = $(itemLine);
-    itemDom.data('item', item.name);
     itemDom.find('.item-type').text(item.type);
     itemDom.find('.item-name').text(item.name);
     itemDom.find('.item-price').text(item.price);
@@ -47,7 +47,8 @@ function listItemFormer (item) {
 
 function listListenerInitiate () {
     $('.list-item').on('click', 'button', function () {
-        cartAddItem($(this).closest('.list-item').data('itemName'));
+        cartAddItem($(this).closest('.list-item').find('.item-name').text());
+        cartCountInitiate();
     });
 }
 
