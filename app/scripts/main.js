@@ -133,6 +133,13 @@ function loadView (view) {
     });
 }
 
+function paymentListenerInitiate () {
+    $('#confirm').on('click', function () {
+        Order.clear();
+        loadView('home');
+    })
+}
+
 function paymentViewInitiate () {
     var cartItems = Order.all();
     _(cartItems).each(function (item) {
@@ -149,6 +156,7 @@ function paymentViewInitiate () {
     $('#cart-fare').text(Order.fare().toFixed(2));
     $('#cart-saving').text(Order.saving().toFixed(2));
     cartListenerInitiate();
+    paymentListenerInitiate();
 }
 
 function refresh () {

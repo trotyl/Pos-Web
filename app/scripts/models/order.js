@@ -11,6 +11,10 @@ Order.all = function () {
     return result;
 };
 
+Order.clear = function () {
+    localStorage.clear();
+};
+
 Order.save = function (item) {
     var boughtItems = Order.all();
     boughtItems[item.name] = item;
