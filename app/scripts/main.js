@@ -2,11 +2,6 @@ function buyButtonFormer () {
     return '<button class="btn btn-primary btm-sm">加入购物车</button>';
 }
 
-function cartAddItem (itemName) {
-    var item = Order.findByName(itemName);
-    item.addCount();
-}
-
 function cartCountInitiate () {
     $('#cart-count').text(Order.getCartCount());
 }
@@ -23,6 +18,22 @@ function cartItemFormer (item) {
     return itemDom;
 }
 
+function cartListenerInitiate () {
+    $('.item-count').on('click', 'button', function () {
+        var itemName = $(this).closest('.cart-item').find('.item-name').text();
+        var item = Order.findByName(itemName);
+        if($(this).data('operation') == 'add') {
+            item.addCount();
+        }
+        else {
+            item.minusCount();
+        }
+        $(this).closest('.btn-group').find('.number').text(item.count);
+        $(this).closest('.cart-item').find('.item-sum').text(sumPriceFormer(item));
+        cartCountInitiate();
+    })
+}
+
 function cartViewInitiate () {
     Order.getPromotion(loadPromotions());
     var cartItems = Order.all();
@@ -32,12 +43,13 @@ function cartViewInitiate () {
     });
     $('#cart-fare').text(Order.fare().toFixed(2));
     $('#cart-saving').text(Order.saving().toFixed(2));
+    cartListenerInitiate();
 }
 
 function countButtonGroupFormer (count) {
     return '<div class="btn-group">\
                 <button class="btn btn-default" data-operation="minus">-</button>\
-                <button class="btn btn-default" disabled="disabled">' + count + '</button>\
+                <button class="btn btn-default number" disabled="disabled">' + count + '</button>\
                 <button class="btn btn-default" data-operation="add">+</button>\
             </div>'
 }
@@ -72,7 +84,9 @@ function listItemFormer (item) {
 
 function listListenerInitiate () {
     $('.list-item').on('click', 'button', function () {
-        cartAddItem($(this).closest('.list-item').find('.item-name').text());
+        var itemName = $(this).closest('.list-item').find('.item-name').text();
+        var item = Order.findByName(itemName);
+        item.addCount();
         cartCountInitiate();
     });
 }

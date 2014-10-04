@@ -19,14 +19,16 @@ Item.prototype.getPromotion = function () {
 Item.prototype.addCount = function() {
     this.count++;
     this.save();
+    return this.count;
 };
 
 Item.prototype.minusCount = function () {
     if(this.count <= 0) {
-        return;
+        return false;
     }
     this.count--;
     this.save();
+    return this.count;
 };
 
 Item.prototype.free = function () {
