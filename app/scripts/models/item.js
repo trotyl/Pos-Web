@@ -1,5 +1,4 @@
-function Item(barcode, name, unit, price, type, count, promotion) {
-    this.barcode = barcode;
+function Item(name, unit, price, type, count, promotion) {
     this.name = name;
     this.unit = unit;
     this.price = price;
@@ -8,20 +7,18 @@ function Item(barcode, name, unit, price, type, count, promotion) {
     this.promotion = promotion || false;
 }
 
-Item.prototype.storage = function () {
-    var boughtItems = JSON.parse(localStorage.boughtItems);
-    boughtItems[this.barcode] = this;
-    localStorage.boughtItems = JSON.stringify(boughtItems);
+Item.prototype.save = function () {
+    Order.save(this);
 };
 
 Item.prototype.getPromotion = function () {
     this.promotion = true;
-    this.storage();
+    this.save();
 };
 
 Item.prototype.addCount = function() {
     this.count++;
-    this.storage();
+    this.save();
 };
 
 Item.prototype.minusCount = function () {
@@ -29,12 +26,7 @@ Item.prototype.minusCount = function () {
         return;
     }
     this.count--;
-    this.storage();
-};
-
-Item.prototype.sumDisplay = function () {
-    var extraSum = this.free() > 0? ' (原价：' + this.total() + '元)': '';
-    return this.fare() + '元' + extraSum;
+    this.save();
 };
 
 Item.prototype.free = function () {
@@ -49,6 +41,6 @@ Item.prototype.fare = function () {
     return (this.count - this.free()) * this.price;
 };
 
-Item.prototype.save = function () {
+Item.prototype.saving = function () {
     return this.free() * this.price;
 };

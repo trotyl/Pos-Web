@@ -3,12 +3,18 @@ function Order () {
 }
 
 Order.all = function () {
-    var boughtItems = JSON.parse(localStorage.boughtItems);
+    var cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
     var result = {};
-    _(boughtItems).each(function (item, barcode) {
-        result[barcode] = new Item(item.barcode, item.name, item.unit, item.price, item.type, item.count, item.promotion);
+    _(cartItems).each(function (item) {
+        result[item.name] = new Item(item.name, item.unit, item.price, item.type, item.count, item.promotion);
     });
     return result;
+};
+
+Order.save = function (item) {
+    var boughtItems = Order.all();
+    boughtItems[item.name] = item;
+    localStorage.setItem('cartItems', JSON.stringify(boughtItems));
 };
 
 Order.findByName = function (name) {
@@ -17,10 +23,17 @@ Order.findByName = function (name) {
     });
 };
 
+Order.getCartCount = function () {
+    var cartItems = Order.all();
+    return _(cartItems).reduce(function (sum, item) {
+        return sum + item.count;
+    }, 0);
+};
+
 Order.getPromotion = function (items, promotions) {
     var two_with_one_list = _(promotions).findWhere({type: 'BUY_TWO_GET_ONE_FREE'}).barcodes;
-    _(two_with_one_list).each(function (barcode) {
-        var item = items[barcode];
+    _(two_with_one_list).each(function (name) {
+        var item = items[name];
         if(item && !item.promotion) {
             item.getPromotion();
         }

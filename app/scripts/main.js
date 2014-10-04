@@ -3,18 +3,40 @@ function buyButtonFormer () {
 }
 
 function cartAddItem (itemName) {
-    console.log(itemName);
-    var cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
-    cartItems[itemName] || (cartItems[itemName] = _(loadAllItems()).find({name: itemName}));
-    cartItems[itemName].count += 1;
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    var item = Order.findByName(itemName);
+    item.addCount();
 }
 
 function cartCountInitiate () {
-    var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    $('#cart-count').text(_(cartItems).reduce(function (sum, item) {
-        return sum + item.count;
-    }, 0));
+    $('#cart-count').text(Order.getCartCount());
+}
+
+function cartItemFormer (item) {
+    var itemLine = '<tr class="cart-item"><td class="item-type"></td><td class="item-name"></td><td class="item-price"></td><td class="item-unit"></td><td class="item-count"></td><td class="item-sum"></td></tr>';
+    var itemDom = $(itemLine);
+    itemDom.find('.item-type').text(item.type);
+    itemDom.find('.item-name').text(item.name);
+    itemDom.find('.item-price').text(item.price);
+    itemDom.find('.item-unit').text(item.unit);
+    itemDom.find('.item-count').html(countButtonGroupFormer(item.count));
+    itemDom.find('.item-sum').text(sumPriceFormer(item));
+    return itemDom;
+}
+
+function cartViewInitiate () {
+    var cartItems = Order.all();
+    _(cartItems).each(function (item) {
+        var cartItem = cartItemFormer(item);
+        $('#cart-table').append(cartItem);
+    })
+}
+
+function countButtonGroupFormer (count) {
+    return '<div class="btn-group">\
+                <button class="btn btn-default" data-operation="minus">-</button>\
+                <button class="btn btn-default" disabled="disabled">' + count + '</button>\
+                <button class="btn btn-default" data-operation="add">+</button>\
+            </div>'
 }
 
 function highlightInitiate () {
@@ -35,7 +57,7 @@ function listenerInitiate () {
 }
 
 function listItemFormer (item) {
-    var itemLine = '<tr class="list-item" data-item=""><td class="item-type"></td><td class="item-name"></td><td class="item-price"></td><td class="item-unit"></td><td class="item-buy"></td></tr>';
+    var itemLine = '<tr class="list-item"><td class="item-type"></td><td class="item-name"></td><td class="item-price"></td><td class="item-unit"></td><td class="item-buy"></td></tr>';
     var itemDom = $(itemLine);
     itemDom.find('.item-type').text(item.type);
     itemDom.find('.item-name').text(item.name);
@@ -61,27 +83,6 @@ function listViewInitiate () {
     listListenerInitiate();
 }
 
-function loadAllItems() {
-    return [
-        new Item('ITEM000000', '可口可乐', '瓶', 3.00, '饮料'),
-        new Item('ITEM000001', '雪碧', '瓶', 3.00, '饮料'),
-        new Item('ITEM000002', '苹果', '斤', 5.50, '水果'),
-        new Item('ITEM000003', '荔枝', '斤', 15.00, '水果'),
-        new Item('ITEM000004', '电池', '个', 2.00, '生活用品'),
-        new Item('ITEM000005', '方便面', '袋', 4.50, '食品')
-    ];
-}
-
-function loadPromotions() {
-    return [
-        new Promotion('BUY_TWO_GET_ONE_FREE', [
-            'ITEM000000',
-            'ITEM000001',
-            'ITEM000005'
-        ])
-    ]
-}
-
 function loadView (view) {
     $('#view').data('view', view);
     $.get(viewPath(view), function (data) {
@@ -94,10 +95,20 @@ function refresh () {
     cartCountInitiate();
     listenerInitiate();
     highlightInitiate();
-    if($('#view').data('view') == 'list') {
+    var view = $('#view').data('view');
+    if(view == 'list') {
         listViewInitiate();
     }
+    else if(view == 'cart') {
+        cartViewInitiate();
+    }
+}
 
+function sumPriceFormer (item) {
+    var free = item.promotion? Math.floor(item.count / 3): 0;
+    var fare = (item.count - free) * item.price;
+    var extra = free > 0? ' (原价：' + fare + '元)': '';
+    return fare + '元' + extra;
 }
 
 function viewPath (view) {

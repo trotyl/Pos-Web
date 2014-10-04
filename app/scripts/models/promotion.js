@@ -1,4 +1,4 @@
-function Promotion(type, barcodes) {
+function Promotion(type, names) {
     this.type = type;
-    this.barcodes = barcodes || [];
+    this.names = names || [];
 }
