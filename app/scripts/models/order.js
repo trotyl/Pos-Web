@@ -30,8 +30,9 @@ Order.getCartCount = function () {
     }, 0);
 };
 
-Order.getPromotion = function (items, promotions) {
-    var two_with_one_list = _(promotions).findWhere({type: 'BUY_TWO_GET_ONE_FREE'}).barcodes;
+Order.getPromotion = function (promotions) {
+    var items = Order.all();
+    var two_with_one_list = _(promotions).findWhere({type: 'BUY_TWO_GET_ONE_FREE'}).names;
     _(two_with_one_list).each(function (name) {
         var item = items[name];
         if(item && !item.promotion) {

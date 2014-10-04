@@ -24,6 +24,7 @@ function cartItemFormer (item) {
 }
 
 function cartViewInitiate () {
+    Order.getPromotion(loadPromotions());
     var cartItems = Order.all();
     _(cartItems).each(function (item) {
         var cartItem = cartItemFormer(item);
@@ -105,10 +106,8 @@ function refresh () {
 }
 
 function sumPriceFormer (item) {
-    var free = item.promotion? Math.floor(item.count / 3): 0;
-    var fare = (item.count - free) * item.price;
-    var extra = free > 0? ' (原价：' + fare + '元)': '';
-    return fare + '元' + extra;
+    var extra = item.free() > 0? ' (原价：' + item.total() + '元)': '';
+    return item.fare() + '元' + extra;
 }
 
 function viewPath (view) {
