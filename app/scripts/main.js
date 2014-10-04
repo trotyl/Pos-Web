@@ -3,9 +3,11 @@ function viewPath (view) {
 }
 
 function loadView (view) {
+    $('#view').data('view', view);
     $.get(viewPath(view), function (data) {
         $('#view').html(data);
         listenerInitiate();
+        highlightInitiate();
     });
 }
 
@@ -23,8 +25,19 @@ function listenerInitiate () {
     })
 }
 
+function highlightInitiate () {
+    var currentView = $('#view').data('view');
+    $('.highlight-option').each(function () {
+        $(this).removeClass('active');
+        if($(this).data('view') == currentView) {
+            $(this).addClass('active');
+        }
+    })
+}
+
 $(document).ready(function () {
     loadCartCount();
     loadView('home');
     listenerInitiate();
+    highlightInitiate();
 });

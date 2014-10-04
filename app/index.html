@@ -31,12 +31,16 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a class="view-option" data-view="home">主页</a></li>
-                        <li><a class="view-option" data-view="list">商品列表</a></li>
+                        <li class="highlight-option" data-view="home">
+                            <a class="view-option" data-view="home">主页</a>
+                        </li>
+                        <li class="highlight-option" data-view="list">
+                            <a class="view-option" data-view="list">商品列表</a>
+                        </li>
 
                     </ul>
                     <ul class="nav navbar-nav pull-right">
-                        <li>
+                        <li class="highlight-option" data-view="cart">
                             <a class="view-option" data-view="cart">
                                 <span class="glyphicon glyphicon-shopping-cart">购物车</span> (<span id="count">0</span>)
                             </a>
@@ -46,7 +50,7 @@
             </div><!-- /.container-fluid -->
         </nav>
 
-        <div id="view"></div>
+        <div id="view" data-view="home"></div>
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
