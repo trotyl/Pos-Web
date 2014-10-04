@@ -29,7 +29,9 @@ function cartViewInitiate () {
     _(cartItems).each(function (item) {
         var cartItem = cartItemFormer(item);
         $('#cart-table').append(cartItem);
-    })
+    });
+    $('#cart-fare').text(Order.fare().toFixed(2));
+    $('#cart-saving').text(Order.saving().toFixed(2));
 }
 
 function countButtonGroupFormer (count) {

@@ -41,14 +41,14 @@ Order.getPromotion = function (promotions) {
     }, this);
 };
 
-Order.totalPrice = function (items) {
-    return _(items).reduce(function (sum, item) {
-        return sum + item.total();
+Order.fare = function () {
+    return _(Order.all()).reduce(function (sum, item) {
+        return sum + item.fare();
     }, 0);
 };
 
-Order.savePrice = function (items) {
-    return _(items).reduce(function (sum, item) {
-        return sum + item.save();
+Order.saving = function () {
+    return _(Order.all()).reduce(function (sum, item) {
+        return sum + item.saving();
     }, 0);
 };
