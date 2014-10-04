@@ -126,9 +126,7 @@ function listViewInitiate () {
 }
 
 function loadView (view) {
-    $('#view').data('view', view);
-    $.get(viewPath(view), function (data) {
-        $('#view').html(data);
+    $('#view').data('view', view).load(viewPath(view), function () {
         refresh();
     });
 }
