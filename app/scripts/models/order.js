@@ -24,6 +24,8 @@ Order.save = function (item) {
 Order.findByName = function (name) {
     return _(Order.all()).find(function (item) {
         return item.name == name;
+    }) || _(loadAllItems()).find (function (item) {
+        return item.name == name;
     });
 };
 

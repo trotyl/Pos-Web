@@ -154,7 +154,6 @@ function paymentViewInitiate () {
     $('#dateTime').text(moment().format('YYYY年MM月DD日 HH:mm:ss'));
     $('#cart-fare').text(Order.fare().toFixed(2));
     $('#cart-saving').text(Order.saving().toFixed(2));
-    cartListenerInitiate();
     paymentListenerInitiate();
 }
 
