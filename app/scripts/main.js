@@ -15,7 +15,8 @@ function buyButtonFormer () {
 }
 
 function cartCountInitiate () {
-    $('#cart-count').text(Order.getCartCount());
+    var count = Order.getCartCount();
+    $('#cart-count').text(count);
 }
 
 function cartItemFormer (item) {
@@ -43,6 +44,9 @@ function cartListenerInitiate () {
         $(this).closest('.btn-group').find('.number').text(item.count);
         $(this).closest('.cart-item').find('.item-sum').text(sumPriceFormer(item));
         cartCountInitiate();
+        if($('#cart-count').text() == 0) {
+            loadView('list');
+        }
     })
 }
 
