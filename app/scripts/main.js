@@ -182,7 +182,7 @@ function sumPriceHelper (item) {
 }
 
 function viewHelper (view) {
-    return 'views/' + view + '.html';
+    return _.template('/views/<%= view %>.html', { view: view });
 }
 
 $(document).ready(function () {
